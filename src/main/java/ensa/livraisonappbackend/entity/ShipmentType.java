@@ -14,11 +14,12 @@ import java.util.List;
 @NoArgsConstructor
 public class ShipmentType {
     @Id
-    @GeneratedValue
+    @GeneratedValue @JsonBackReference
     private Long id;
     private String code;
     private String name;
     private Double price;
+    private String description;
     @OneToMany @JsonBackReference
     private List<Shipment> shipmentList;
 }

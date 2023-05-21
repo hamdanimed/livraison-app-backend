@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Category {
     @Id
-    @GeneratedValue
+    @GeneratedValue @JsonBackReference
     private Long id;
     private String code;
     private String name;

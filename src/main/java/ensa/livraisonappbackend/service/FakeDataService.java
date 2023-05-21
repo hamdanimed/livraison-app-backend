@@ -5,6 +5,7 @@ import ensa.livraisonappbackend.repository.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -39,13 +40,13 @@ public class FakeDataService {
         product5.setCategory(category3);
         productRepository.saveAllAndFlush(List.of(product1,product2,product3,product4,product5));
 
-        Shipment shipment1=new Shipment(null,"001","Mohamed","Hamdani","0676158822","Anza,Agadir","Agadir","80000","800",new Date(2023,04,1),"order processed",null,null,null,null);
-        Shipment shipment2=new Shipment(null,"002","Hamza","Elgarai","0600158822","Mhamid,Marrakech","Marrakech","10000","310",new Date(2023,04,2),"order shipped",null,null,null,null);
+        Shipment shipment1=new Shipment(null,"001","Mohamed","Hamdani","0676158822","Anza,Agadir","Agadir","80000","800",LocalDateTime.of(2023,04,01,18,20),"order processed",null,null,null,null);
+        Shipment shipment2=new Shipment(null,"002","Hamza","Elgarai","0600158822","Mhamid,Marrakech","Marrakech","10000","310",LocalDateTime.of(2023,04,02,18,20),"order shipped",null,null,null,null);
         shipmentRepository.saveAllAndFlush(List.of(shipment1,shipment2));
 
-        ShipmentType shipmentType1=new ShipmentType(null,"S-001","express delivery",50.00,null);
-        ShipmentType shipmentType2=new ShipmentType(null,"S-002","post office",20.00,null);
-        ShipmentType shipmentType3=new ShipmentType(null,"S-003","self pick-up",10.00,null);
+        ShipmentType shipmentType1=new ShipmentType(null,"S-001","express delivery",50.00,"3-4 days via Fedex",null);
+        ShipmentType shipmentType2=new ShipmentType(null,"S-002","post office",20.00,"20-30 days via post",null);
+        ShipmentType shipmentType3=new ShipmentType(null,"S-003","self pick-up",10.00,"Come to our shop",null);
 
         shipmentType1.setShipmentList(List.of(shipment1));
         shipmentType2.setShipmentList(List.of(shipment2));
@@ -81,13 +82,13 @@ public class FakeDataService {
         shipmentRepository.saveAllAndFlush(List.of(shipment1,shipment2));
 
         //shipment 1
-        ShipmentUpdate shipmentUpdate1=new ShipmentUpdate(null,"001","Casablanca",new Date(2023,04,2),"order shipped",shipment1);
-        ShipmentUpdate shipmentUpdate2=new ShipmentUpdate(null,"002","Casablanca",new Date(2023,04,2),"order en route",shipment1);
-        ShipmentUpdate shipmentUpdate3=new ShipmentUpdate(null,"003","Casablanca",new Date(2023,04,4),"order en arrived",shipment1);
+        ShipmentUpdate shipmentUpdate1=new ShipmentUpdate(null,"001","Casablanca",LocalDateTime.of(2023,04,02,9,00),"order shipped",shipment1);
+        ShipmentUpdate shipmentUpdate2=new ShipmentUpdate(null,"002","Casablanca",LocalDateTime.of(2023,04,02,10,00),"order on the way",shipment1);
+        ShipmentUpdate shipmentUpdate3=new ShipmentUpdate(null,"003","Casablanca",LocalDateTime.of(2023,04,4,10,00),"order arrived",shipment1);
         //shipment 2
-        ShipmentUpdate shipmentUpdate4=new ShipmentUpdate(null,"004","Casablanca",new Date(2023,04,4),"order en shipped",shipment2);
-        ShipmentUpdate shipmentUpdate5=new ShipmentUpdate(null,"004","Casablanca",new Date(2023,04,8),"order en route",shipment2);
-        ShipmentUpdate shipmentUpdate6=new ShipmentUpdate(null,"003","Casablanca",new Date(2023,04,22),"order en arrived",shipment2);
+        ShipmentUpdate shipmentUpdate4=new ShipmentUpdate(null,"004","Casablanca",LocalDateTime.of(2023,04,4,16,00),"order shipped",shipment2);
+        ShipmentUpdate shipmentUpdate5=new ShipmentUpdate(null,"004","Casablanca",LocalDateTime.of(2023,04,8,7,00),"order on the way",shipment2);
+        ShipmentUpdate shipmentUpdate6=new ShipmentUpdate(null,"003","Casablanca",LocalDateTime.of(2023,04,22,18,00),"order arrived",shipment2);
         shipmentUpdateRepository.saveAllAndFlush(List.of(shipmentUpdate1,shipmentUpdate2,shipmentUpdate3,shipmentUpdate4,shipmentUpdate5,shipmentUpdate6));
 
         shipment1.setShipmentUpdateList(List.of(shipmentUpdate1,shipmentUpdate2,shipmentUpdate3));

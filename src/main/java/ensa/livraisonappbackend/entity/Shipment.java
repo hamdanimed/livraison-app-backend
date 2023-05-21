@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Shipment {
     @Id
-    @GeneratedValue
+    @GeneratedValue @JsonBackReference
     private Long id;
     private String code;
     private String fname;
@@ -26,7 +27,7 @@ public class Shipment {
     private String city;
     private String postalCode;
     private String zip;
-    private Date orderDate;
+    private LocalDateTime orderDate;
     private String status;
     @ManyToOne @JsonManagedReference
     private ShipmentType shipmentType;

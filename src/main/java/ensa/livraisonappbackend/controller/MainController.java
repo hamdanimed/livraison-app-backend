@@ -46,6 +46,11 @@ public class MainController {
 //    @GetMapping("/shipments")
 //    private List<Shipment> getShipment(){ return shipmentRepository.findAll();}
 
+    @GetMapping("/shipments/{code}")
+    private Shipment getShipment(@PathVariable(value = "code") String code){
+        return shipmentRepository.findByCode(code);
+    }
+
 //    @GetMapping("/product-shipments")
 //    private List<ProductShipment> getProductShipment(){
 //        return productShipmentRepositroy.findAll();

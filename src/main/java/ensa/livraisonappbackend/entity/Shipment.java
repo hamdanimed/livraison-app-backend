@@ -35,7 +35,7 @@ public class Shipment {
     private ShipmentType shipmentType;
     @OneToMany(mappedBy = "shipment")
     private List<ProductShipment> productShipmentList;
-    @OneToOne @JsonBackReference
+    @OneToOne(mappedBy = "shipment")
     private Paiement paiement;
     @OneToMany @JsonBackReference
     private List<ShipmentUpdate> shipmentUpdateList;

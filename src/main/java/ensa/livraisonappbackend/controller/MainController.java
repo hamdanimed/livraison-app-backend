@@ -6,6 +6,7 @@ import ensa.livraisonappbackend.entity.*;
 import ensa.livraisonappbackend.repository.*;
 import ensa.livraisonappbackend.service.FakeDataService;
 import jakarta.annotation.PostConstruct;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,24 +20,18 @@ import java.util.Objects;
 @CrossOrigin
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class MainController {
 
-    @Autowired
+    private final
     FakeDataService fakeDataService;
-    @Autowired
-    ShipmentRepository shipmentRepository;
-    @Autowired
-    ShipmentTypeRepository shipmentTypeRepository;
-    @Autowired
-    ProductShipmentRepositroy productShipmentRepositroy;
-    @Autowired
-    PaiementRepository paiementRepository;
-    @Autowired
-    ProductRepository productRepository;
-    @Autowired
-    CategoryRepository categoryRepository;
-    @Autowired
-    List<ProductShipmentRepositroy> productShipmentRepositroyList;
+    private final ShipmentRepository shipmentRepository;
+    private final ShipmentTypeRepository shipmentTypeRepository;
+    private final ProductShipmentRepositroy productShipmentRepositroy;
+    private final PaiementRepository paiementRepository;
+    private final ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
+    private final List<ProductShipmentRepositroy> productShipmentRepositroyList;
 
 
     @PostConstruct
@@ -57,7 +52,7 @@ public class MainController {
 //    private List<Shipment> getShipment(){ return shipmentRepository.findAll();}
 
     @GetMapping("/shipments/{code}")
-    private Shipment getShipment(@PathVariable(value = "code") String code){
+    private Shipment getShipment(@PathVariable("code") String code){
         return shipmentRepository.findByCode(code);
     }
     @PostMapping("/shipments-add")
@@ -105,6 +100,17 @@ public class MainController {
 
         shipmentFinal.setProductShipmentList(productShipmentList);
 
+        Paiement paiement = Paiement.builder()
+                .code(dto.getPaiement().getCode())
+                .productsTotal(dto.getPaiement().getProductsTotal())
+                .discountValue(dto.getPaiement().getDiscountValue())
+                .shipmentPrice(dto.getPaiement().getShipmentPrice())
+                .shipment(shipmentFinal)
+                .build();
+
+        paiementRepository.save(paiement);
+
+        shipmentFinal.setPaiement(paiement);
 
         return ResponseEntity.ok(
                 shipmentFinal

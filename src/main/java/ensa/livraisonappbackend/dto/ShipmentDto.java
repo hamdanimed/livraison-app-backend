@@ -23,5 +23,7 @@ public class ShipmentDto {
 
     private Long shipmentType;
 
+    private PaiementDto paiement;
+
 
 }

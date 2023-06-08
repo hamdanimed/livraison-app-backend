@@ -18,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Shipment {
     @Id
-    @GeneratedValue @JsonBackReference
+    @GeneratedValue
     private Long id;
     private String code;
     private String fname;

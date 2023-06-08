@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Paiement {
     @Id
-    @GeneratedValue @JsonBackReference
+    @GeneratedValue
     private Long id;
     private String code;
     private Double productsTotal;

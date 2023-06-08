@@ -20,7 +20,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class ShipmentUpdate {
     @Id
-    @GeneratedValue @JsonBackReference
+    @GeneratedValue
     private Long id;
     private String code;
     private String location;

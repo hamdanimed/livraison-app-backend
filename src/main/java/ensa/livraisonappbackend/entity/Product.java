@@ -14,7 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
-    @Id @GeneratedValue @JsonBackReference
+    @Id @GeneratedValue
     private Long id;
     private String code;
     private String name;

@@ -55,10 +55,11 @@ public class MainController {
     private Shipment getShipment(@PathVariable("code") String code){
         return shipmentRepository.findByCode(code);
     }
-    @PostMapping("/shipments-add")
+    @PostMapping("/shipments/add")
     public ResponseEntity<Shipment> createShipment(
             @RequestBody ShipmentDto dto
             ) {
+        System.out.println(dto);
         // Create a new shipment object
         Shipment shipment = new Shipment();
         shipment.setCode(dto.getCode());

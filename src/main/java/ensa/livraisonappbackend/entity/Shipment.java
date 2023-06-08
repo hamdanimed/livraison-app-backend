@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -27,11 +28,12 @@ public class Shipment {
     private String city;
     private String postalCode;
     private String zip;
+    @CreationTimestamp
     private LocalDateTime orderDate;
     private String status;
     @ManyToOne @JsonManagedReference
     private ShipmentType shipmentType;
-    @OneToMany  @JsonBackReference
+    @OneToMany(mappedBy = "shipment")
     private List<ProductShipment> productShipmentList;
     @OneToOne @JsonBackReference
     private Paiement paiement;

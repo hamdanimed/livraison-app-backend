@@ -9,10 +9,10 @@ spring:
     username:
       root
     password:
-      V@ste789
+
     driver-class-name:
       com.mysql.cj.jdbc.Driver
 
 server:
-  port: 8080
+  port: 8090
 spring.jpa.show-sql: true

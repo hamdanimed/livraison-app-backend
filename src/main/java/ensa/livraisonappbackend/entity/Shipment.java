@@ -28,6 +28,7 @@ public class Shipment {
     private String city;
     private String postalCode;
     private String zip;
+    private String email;
     @CreationTimestamp
     private LocalDateTime orderDate;
     private String status;

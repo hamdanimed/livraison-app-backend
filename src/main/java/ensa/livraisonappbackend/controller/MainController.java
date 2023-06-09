@@ -4,6 +4,7 @@ import ensa.livraisonappbackend.dto.ProductDto;
 import ensa.livraisonappbackend.dto.ShipmentDto;
 import ensa.livraisonappbackend.entity.*;
 import ensa.livraisonappbackend.repository.*;
+import ensa.livraisonappbackend.service.EmailService;
 import ensa.livraisonappbackend.service.FakeDataService;
 import ensa.livraisonappbackend.service.Randomizer;
 import jakarta.annotation.PostConstruct;
@@ -33,6 +34,8 @@ public class MainController {
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
     private final List<ProductShipmentRepositroy> productShipmentRepositroyList;
+    @Autowired
+    private EmailService emailService;
 
 
     @PostConstruct
@@ -114,8 +117,9 @@ public class MainController {
         paiementRepository.save(paiement);
 
         shipmentFinal.setPaiement(paiement);
-        System.out.println(shipmentFinal);
+//        System.out.println(shipmentFinal);
 
+        emailService.sendMail(shipment.getEmail(),"Tracker Code for shipment","Code to follow you shipment in Order Tracker : "+shipment.getCode());
         return ResponseEntity.ok(
                 shipmentFinal
         );

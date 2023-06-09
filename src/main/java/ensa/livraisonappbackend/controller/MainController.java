@@ -73,7 +73,7 @@ public class MainController {
         shipment.setEmail(dto.getEmail());
         shipment.setZip(dto.getZip());
         //shipment.setOrderDate(LocalDateTime.now());
-        shipment.setStatus(dto.getStatus());
+        shipment.setStatus("order processed");
         shipment.setShipmentType(
                 shipmentTypeRepository
                         .findByCode(dto.getShipmentType())

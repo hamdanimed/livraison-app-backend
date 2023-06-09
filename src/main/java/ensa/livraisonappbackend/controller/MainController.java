@@ -113,10 +113,12 @@ public class MainController {
         paiementRepository.save(paiement);
 
         shipmentFinal.setPaiement(paiement);
+        System.out.println(shipmentFinal);
 
         return ResponseEntity.ok(
                 shipmentFinal
         );
+
     }
 
 

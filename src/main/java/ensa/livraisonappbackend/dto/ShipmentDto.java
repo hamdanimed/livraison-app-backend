@@ -18,6 +18,7 @@ public class ShipmentDto {
     private String city;
     private String postalCode;
     private String zip;
+    private String email;
     private String status;
     private List<ProductDto> products;
 

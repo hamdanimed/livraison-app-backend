@@ -40,8 +40,8 @@ public class FakeDataService {
         product5.setCategory(category3);
         productRepository.saveAllAndFlush(List.of(product1,product2,product3,product4,product5));
 
-        Shipment shipment1=new Shipment(null,"001","Mohamed","Hamdani","0676158822","Anza,Agadir","Agadir","80000","800",LocalDateTime.of(2023,04,01,18,20),"order processed",null,null,null,null);
-        Shipment shipment2=new Shipment(null,"002","Hamza","Elgarai","0600158822","Mhamid,Marrakech","Marrakech","10000","310",LocalDateTime.of(2023,04,02,18,20),"order shipped",null,null,null,null);
+        Shipment shipment1=new Shipment(null,"001","Mohamed","Hamdani","0676158822","Anza,Agadir","Agadir","80000","800","hamdani@gmail.com",LocalDateTime.of(2023,04,01,18,20),"order arrived",null,null,null,null);
+        Shipment shipment2=new Shipment(null,"002","Hamza","Elgarai","0600158822","Mhamid,Marrakech","Marrakech","10000","310","jabak@livra.com",LocalDateTime.of(2023,04,02,18,20),"order on the way",null,null,null,null);
         shipmentRepository.saveAllAndFlush(List.of(shipment1,shipment2));
 
         ShipmentType shipmentType1=new ShipmentType(null,"S-001","express delivery",50.00,"3-4 days via Fedex",null);

@@ -69,6 +69,7 @@ public class MainController {
         shipment.setAddress(dto.getAddress());
         shipment.setCity(dto.getCity());
         shipment.setPostalCode(dto.getPostalCode());
+        shipment.setEmail(dto.getEmail());
         shipment.setZip(dto.getZip());
         //shipment.setOrderDate(LocalDateTime.now());
         shipment.setStatus(dto.getStatus());

@@ -5,6 +5,7 @@ import ensa.livraisonappbackend.dto.ShipmentDto;
 import ensa.livraisonappbackend.entity.*;
 import ensa.livraisonappbackend.repository.*;
 import ensa.livraisonappbackend.service.FakeDataService;
+import ensa.livraisonappbackend.service.Randomizer;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +63,7 @@ public class MainController {
         System.out.println(dto);
         // Create a new shipment object
         Shipment shipment = new Shipment();
-        shipment.setCode(dto.getCode());
+        shipment.setCode(Randomizer.generateShipmentCode());
         shipment.setFname(dto.getFname());
         shipment.setLname(dto.getLname());
         shipment.setTel(dto.getTel());
@@ -75,8 +76,8 @@ public class MainController {
         shipment.setStatus(dto.getStatus());
         shipment.setShipmentType(
                 shipmentTypeRepository
-                        .findById(dto.getShipmentType())
-                        .orElse(null)
+                        .findByCode(dto.getShipmentType())
+
         );
 
         // Retrieve the product shipments by product IDs

@@ -22,7 +22,7 @@ public class ShipmentDto {
     private String status;
     private List<ProductDto> products;
 
-    private Long shipmentType;
+    private String shipmentType;
 
     private PaiementDto paiement;
 

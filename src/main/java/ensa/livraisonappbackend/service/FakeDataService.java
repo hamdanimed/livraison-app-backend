@@ -21,16 +21,23 @@ public class FakeDataService {
     private ShipmentUpdateRepository shipmentUpdateRepository;
 
     public void loadData(){
-        Product product1=new Product(null,"1","adidas t-shirt",30,30.00,"https://placehold.co/400",null,null);
-        Product product2=new Product(null,"2","lacost polo",10,20.00,"https://placehold.co/400",null,null);
-        Product product3=new Product(null,"3","nike pants red",10,15.00,"https://placehold.co/400",null,null);
-        Product product4=new Product(null,"4","samsung galaxy s21",10,15.00,"https://placehold.co/400",null,null);
-        Product product5=new Product(null,"5","LG OLED TV 55 pouces",10,15.00,"https://placehold.co/400",null,null);
-        productRepository.saveAllAndFlush(List.of(product1,product2,product3,product4,product5));
+        Product product1=new Product(null,"1","adidas t-shirt",30,30.00,"../assets/adidas.jpg",null,null);
+        Product product2=new Product(null,"2","lacost polo",10,20.00,"../assets/lacoste.jpg",null,null);
+        Product product3=new Product(null,"3","nike pants red",10,15.00,"../assets/nike.jpg",null,null);
+        Product product4=new Product(null,"4","samsung galaxy s21",10,15.00,"../assets/S21.jpg",null,null);
+        Product product5=new Product(null,"5","LG OLED TV 55 pouces",10,15.00,"../assets/TV.png",null,null);
+        Product product6 = new Product(null, "6", "Nike Air Max Sneakers", 20, 100.00, "../assets/S21.jpg", null, null);
+        Product product7 = new Product(null, "7", "Adidas Superstar Shoes", 15, 80.00, "../assets/superStar.jpg", null, null);
+        Product product8 = new Product(null, "8", "Levi's Jeans", 30, 50.00, "../assets/levis.jpg", null, null);
+        Product product9 = new Product(null, "9", "Apple iPhone 12 Pro", 10, 999.00, "../assets/iphone12.jpg", null, null);
+        Product product10 = new Product(null, "10", "Samsung 4K Smart TV", 5, 699.00, "../assets/4K.jpg", null, null);
 
-        Category category1=new Category(null,"1","vetement & chaussures",List.of(product1,product2,product3));
-        Category category2=new Category(null,"3","telephone & tablette",List.of(product4));
-        Category category3=new Category(null,"2","tv & hi tech",List.of(product5));
+        productRepository.saveAllAndFlush(List.of(product1,product2,product3,product4,product5,product6, product7, product8, product9, product10));
+
+        Category category1=new Category(null,"1","vetement & chaussures",List.of(product1,product2,product3,product6, product7,product8));
+        Category category2=new Category(null,"3","telephone & tablette",List.of(product4,product9));
+        Category category3=new Category(null,"2","tv & hi tech",List.of(product5,product10));
+
         categoryRepository.saveAllAndFlush(List.of(category1,category2,category3));
 
         product1.setCategory(category1);
@@ -38,7 +45,12 @@ public class FakeDataService {
         product3.setCategory(category1);
         product4.setCategory(category2);
         product5.setCategory(category3);
-        productRepository.saveAllAndFlush(List.of(product1,product2,product3,product4,product5));
+        product6.setCategory(category1);
+        product7.setCategory(category1);
+        product8.setCategory(category1);
+        product9.setCategory(category2);
+        product10.setCategory(category3);
+        productRepository.saveAllAndFlush(List.of(product1,product2,product3,product4,product5,product6,product7,product8,product9,product10));
 
         Shipment shipment1=new Shipment(null,"001","Mohamed","Hamdani","0676158822","Anza,Agadir","Agadir","80000","800","hamdani@gmail.com",LocalDateTime.of(2023,04,01,18,20),"order arrived",null,null,null,null);
         Shipment shipment2=new Shipment(null,"002","Hamza","Elgarai","0600158822","Mhamid,Marrakech","Marrakech","10000","310","jabak@livra.com",LocalDateTime.of(2023,04,02,18,20),"order on the way",null,null,null,null);

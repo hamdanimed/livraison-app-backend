@@ -21,7 +21,7 @@ public class ShipmentDto {
     private String status;
     private List<ProductDto> products;
 
-    private String shipmentType;
+    private Long shipmentType;
 
     private PaiementDto paiement;
 

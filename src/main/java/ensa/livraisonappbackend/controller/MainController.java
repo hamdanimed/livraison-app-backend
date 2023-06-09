@@ -74,8 +74,8 @@ public class MainController {
         shipment.setStatus(dto.getStatus());
         shipment.setShipmentType(
                 shipmentTypeRepository
-                        .findByCode(dto.getShipmentType())
-
+                        .findById(dto.getShipmentType())
+                        .orElse(null)
         );
 
         // Retrieve the product shipments by product IDs

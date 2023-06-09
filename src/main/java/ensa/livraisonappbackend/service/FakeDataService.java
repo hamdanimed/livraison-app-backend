@@ -52,59 +52,59 @@ public class FakeDataService {
         product10.setCategory(category3);
         productRepository.saveAllAndFlush(List.of(product1,product2,product3,product4,product5,product6,product7,product8,product9,product10));
 
-        Shipment shipment1=new Shipment(null,"001","Mohamed","Hamdani","0676158822","Anza,Agadir","Agadir","80000","800","hamdani@gmail.com",LocalDateTime.of(2023,04,01,18,20),"order arrived",null,null,null,null);
-        Shipment shipment2=new Shipment(null,"002","Hamza","Elgarai","0600158822","Mhamid,Marrakech","Marrakech","10000","310","jabak@livra.com",LocalDateTime.of(2023,04,02,18,20),"order on the way",null,null,null,null);
-        shipmentRepository.saveAllAndFlush(List.of(shipment1,shipment2));
-
-        ShipmentType shipmentType1=new ShipmentType(null,"S-001","express delivery",50.00,"3-4 days via Fedex",null);
-        ShipmentType shipmentType2=new ShipmentType(null,"S-002","post office",20.00,"20-30 days via post",null);
-        ShipmentType shipmentType3=new ShipmentType(null,"S-003","self pick-up",10.00,"Come to our shop",null);
-
-        shipmentType1.setShipmentList(List.of(shipment1));
-        shipmentType2.setShipmentList(List.of(shipment2));
-        shipmentTypeRepository.saveAllAndFlush(List.of(shipmentType1,shipmentType2,shipmentType3));
-
-        shipment1.setShipmentType(shipmentType1);
-        shipment2.setShipmentType(shipmentType2);
-        shipmentRepository.saveAllAndFlush(List.of(shipment1,shipment2));
-
-        ProductShipment productShipment1=new ProductShipment(null,2,shipment1,product1);
-        ProductShipment productShipment2=new ProductShipment(null,1,shipment1,product3);
-        ProductShipment productShipment3=new ProductShipment(null,1,shipment1,product4);
-        ProductShipment productShipment4=new ProductShipment(null,1,shipment2,product5);
-        ProductShipment productShipment5=new ProductShipment(null,1,shipment2,product1);
-        productShipmentRepositroy.saveAllAndFlush(List.of(productShipment1,productShipment2,productShipment3,productShipment4,productShipment5));
-
-        product1.setProductShipmentList(List.of(productShipment1,productShipment5));
-        product3.setProductShipmentList(List.of(productShipment2));
-        product4.setProductShipmentList(List.of(productShipment3));
-        product5.setProductShipmentList(List.of(productShipment4));
-        productRepository.saveAllAndFlush(List.of(product1,product2,product3,product4,product5));
-
-        shipment1.setProductShipmentList(List.of(productShipment1,productShipment2,productShipment3));
-        shipment2.setProductShipmentList(List.of(productShipment4,productShipment5));
-        shipmentRepository.saveAll(List.of(shipment1,shipment2));
-
-        Paiement paiement1=new Paiement(null,"000001",90.0,0.0,50.00,shipment1);
-        Paiement paiement2=new Paiement(null,"000002",45.0,0.0,20.00,shipment2);
-        paiementRepository.saveAllAndFlush(List.of(paiement1,paiement2));
-
-        shipment1.setPaiement(paiement1);
-        shipment2.setPaiement(paiement2);
-        shipmentRepository.saveAllAndFlush(List.of(shipment1,shipment2));
-
-        //shipment 1
-        ShipmentUpdate shipmentUpdate1=new ShipmentUpdate(null,"001","Casablanca",LocalDateTime.of(2023,04,02,9,00),"order shipped",shipment1);
-        ShipmentUpdate shipmentUpdate2=new ShipmentUpdate(null,"002","Casablanca",LocalDateTime.of(2023,04,02,10,00),"order on the way",shipment1);
-        ShipmentUpdate shipmentUpdate3=new ShipmentUpdate(null,"003","Casablanca",LocalDateTime.of(2023,04,4,10,00),"order arrived",shipment1);
-        //shipment 2
-        ShipmentUpdate shipmentUpdate4=new ShipmentUpdate(null,"004","Casablanca",LocalDateTime.of(2023,04,4,16,00),"order shipped",shipment2);
-        ShipmentUpdate shipmentUpdate5=new ShipmentUpdate(null,"004","Casablanca",LocalDateTime.of(2023,04,8,7,00),"order on the way",shipment2);
-        ShipmentUpdate shipmentUpdate6=new ShipmentUpdate(null,"003","Casablanca",LocalDateTime.of(2023,04,22,18,00),"order arrived",shipment2);
-        shipmentUpdateRepository.saveAllAndFlush(List.of(shipmentUpdate1,shipmentUpdate2,shipmentUpdate3,shipmentUpdate4,shipmentUpdate5,shipmentUpdate6));
-
-        shipment1.setShipmentUpdateList(List.of(shipmentUpdate1,shipmentUpdate2,shipmentUpdate3));
-        shipment2.setShipmentUpdateList(List.of(shipmentUpdate4,shipmentUpdate5,shipmentUpdate6));
-        shipmentRepository.saveAllAndFlush(List.of(shipment1,shipment2));
+//        Shipment shipment1=new Shipment(null,"001","Mohamed","Hamdani","0676158822","Anza,Agadir","Agadir","80000","800","hamdani@gmail.com",LocalDateTime.of(2023,04,01,18,20),"order arrived",null,null,null,null);
+//        Shipment shipment2=new Shipment(null,"002","Hamza","Elgarai","0600158822","Mhamid,Marrakech","Marrakech","10000","310","jabak@livra.com",LocalDateTime.of(2023,04,02,18,20),"order on the way",null,null,null,null);
+//        shipmentRepository.saveAllAndFlush(List.of(shipment1,shipment2));
+//
+//        ShipmentType shipmentType1=new ShipmentType(null,"S-001","express delivery",50.00,"3-4 days via Fedex",null);
+//        ShipmentType shipmentType2=new ShipmentType(null,"S-002","post office",20.00,"20-30 days via post",null);
+//        ShipmentType shipmentType3=new ShipmentType(null,"S-003","self pick-up",10.00,"Come to our shop",null);
+//
+//        shipmentType1.setShipmentList(List.of(shipment1));
+//        shipmentType2.setShipmentList(List.of(shipment2));
+//        shipmentTypeRepository.saveAllAndFlush(List.of(shipmentType1,shipmentType2,shipmentType3));
+//
+//        shipment1.setShipmentType(shipmentType1);
+//        shipment2.setShipmentType(shipmentType2);
+//        shipmentRepository.saveAllAndFlush(List.of(shipment1,shipment2));
+//
+//        ProductShipment productShipment1=new ProductShipment(null,2,shipment1,product1);
+//        ProductShipment productShipment2=new ProductShipment(null,1,shipment1,product3);
+//        ProductShipment productShipment3=new ProductShipment(null,1,shipment1,product4);
+//        ProductShipment productShipment4=new ProductShipment(null,1,shipment2,product5);
+//        ProductShipment productShipment5=new ProductShipment(null,1,shipment2,product1);
+//        productShipmentRepositroy.saveAllAndFlush(List.of(productShipment1,productShipment2,productShipment3,productShipment4,productShipment5));
+//
+//        product1.setProductShipmentList(List.of(productShipment1,productShipment5));
+//        product3.setProductShipmentList(List.of(productShipment2));
+//        product4.setProductShipmentList(List.of(productShipment3));
+//        product5.setProductShipmentList(List.of(productShipment4));
+//        productRepository.saveAllAndFlush(List.of(product1,product2,product3,product4,product5));
+//
+//        shipment1.setProductShipmentList(List.of(productShipment1,productShipment2,productShipment3));
+//        shipment2.setProductShipmentList(List.of(productShipment4,productShipment5));
+//        shipmentRepository.saveAll(List.of(shipment1,shipment2));
+//
+//        Paiement paiement1=new Paiement(null,"000001",90.0,0.0,50.00,shipment1);
+//        Paiement paiement2=new Paiement(null,"000002",45.0,0.0,20.00,shipment2);
+//        paiementRepository.saveAllAndFlush(List.of(paiement1,paiement2));
+//
+//        shipment1.setPaiement(paiement1);
+//        shipment2.setPaiement(paiement2);
+//        shipmentRepository.saveAllAndFlush(List.of(shipment1,shipment2));
+//
+//        //shipment 1
+//        ShipmentUpdate shipmentUpdate1=new ShipmentUpdate(null,"001","Casablanca",LocalDateTime.of(2023,04,02,9,00),"order shipped",shipment1);
+//        ShipmentUpdate shipmentUpdate2=new ShipmentUpdate(null,"002","Casablanca",LocalDateTime.of(2023,04,02,10,00),"order on the way",shipment1);
+//        ShipmentUpdate shipmentUpdate3=new ShipmentUpdate(null,"003","Casablanca",LocalDateTime.of(2023,04,4,10,00),"order arrived",shipment1);
+//        //shipment 2
+//        ShipmentUpdate shipmentUpdate4=new ShipmentUpdate(null,"004","Casablanca",LocalDateTime.of(2023,04,4,16,00),"order shipped",shipment2);
+//        ShipmentUpdate shipmentUpdate5=new ShipmentUpdate(null,"004","Casablanca",LocalDateTime.of(2023,04,8,7,00),"order on the way",shipment2);
+//        ShipmentUpdate shipmentUpdate6=new ShipmentUpdate(null,"003","Casablanca",LocalDateTime.of(2023,04,22,18,00),"order arrived",shipment2);
+//        shipmentUpdateRepository.saveAllAndFlush(List.of(shipmentUpdate1,shipmentUpdate2,shipmentUpdate3,shipmentUpdate4,shipmentUpdate5,shipmentUpdate6));
+//
+//        shipment1.setShipmentUpdateList(List.of(shipmentUpdate1,shipmentUpdate2,shipmentUpdate3));
+//        shipment2.setShipmentUpdateList(List.of(shipmentUpdate4,shipmentUpdate5,shipmentUpdate6));
+//        shipmentRepository.saveAllAndFlush(List.of(shipment1,shipment2));
     }
 }

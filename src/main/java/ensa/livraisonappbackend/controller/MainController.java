@@ -38,8 +38,12 @@ public class MainController {
     private EmailService emailService;
 
 
-    @PostConstruct
-    public void init(){
+//    @PostConstruct
+//    public void init(){
+//        fakeDataService.loadData();
+//    }
+    @GetMapping("/load-data")
+    private void loadData(){
         fakeDataService.loadData();
     }
 
@@ -57,6 +61,7 @@ public class MainController {
 
     @GetMapping("/shipments/{code}")
     private Shipment getShipment(@PathVariable("code") String code){
+//        System.out.println(shipmentRepository.findByCode(code));
         return shipmentRepository.findByCode(code);
     }
     @PostMapping("/shipments/add")

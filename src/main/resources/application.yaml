@@ -2,16 +2,19 @@ spring:
   jpa:
     hibernate:
       ddl-auto:
-        create-drop
+        create
   datasource:
     url:
-      jdbc:mysql://localhost:3306/livraison_db
+#      jdbc:mysql://localhost:3306/livraison_db
+      jdbc:postgresql://ep-cold-waterfall-683113.eu-central-1.aws.neon.tech/neondb
     username:
-      root
+#      root
+      benaarrouch.mohamed01
     password:
-
+      VsOoK7Gk1wiZ
     driver-class-name:
-      com.mysql.cj.jdbc.Driver
+      org.postgresql.Driver
+#      com.mysql.cj.jdbc.Driver
 
   mail:
     host: smtp.gmail.com
